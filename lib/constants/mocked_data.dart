@@ -6,7 +6,7 @@ User michael = User(
   name: 'Michael Scott',
   description:
       'From surfing’s early beginnings as the “Sport of Kings” in Hawaii, it has held a certain sway over spectators and participants alike.',
-  postPic: 'assets/p-a.jpg',
+  postPic: 'assets/u-c.png',
   profilePic: 'assets/u-a.jpg',
   presentationPic: 'assets/u-b.jpeg',
 );
@@ -29,7 +29,7 @@ title: 'The 10 Most Influential Surfers of All Time',
 likes: 200,
 location: 'Argentina, Buenos Aires',
 owner: michael,
-postPicture: 'assets/u-e.jpg',
+postPicture: 'assets/p-b.jpg',
 );
 
 Post secondPost = Post(
@@ -39,7 +39,7 @@ title: 'The 10 Most Influential Surfers of All Time',
 likes: 200,
 location: 'Argentina, Buenos Aires',
 owner: aaron,
-postPicture: 'assets/u-e.jpg',
+postPicture: 'assets/p-a.jpg',
 );
 
 List<Post> posts = [firstPost, secondPost];

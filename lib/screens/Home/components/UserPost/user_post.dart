@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:surfingui/components/CircleProfile/circle_profile.dart';
 import 'package:surfingui/models/post.dart';
-import 'package:surfingui/screens/home/components/UserStory/user_story.dart';
+import 'package:surfingui/screens/Post/post_screen.dart';
 
 class UserPost extends StatelessWidget {
   final Post post;
@@ -12,44 +13,55 @@ class UserPost extends StatelessWidget {
     // TODO make this clickable
     return ClipRRect(
       borderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(15),
-        bottomRight: Radius.circular(15),
-        topLeft: Radius.circular(15),
+        bottomLeft: Radius.circular(20),
+        bottomRight: Radius.circular(20),
+        topLeft: Radius.circular(20),
         topRight: Radius.circular(145),
       ),
-      child: Container(
-          height: 235,
-          width: double.infinity,
-          child: Stack(
-            children: <Widget>[
-              Image(
-                width: double.infinity,
-                image: AssetImage(post.postPicture),
-                fit: BoxFit.cover,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: 15,
-                  horizontal: 20,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PostScreen(post: post),
+            ),
+          );
+        },
+        child: Container(
+            height: 235,
+            width: double.infinity,
+            color: Colors.black,
+            child: Stack(
+              children: <Widget>[
+                Image(
+                  width: double.infinity,
+                  image: AssetImage(post.postPicture),
+                  fit: BoxFit.cover,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    _profile(),
-                    _stats(),
-                    _titile(),
-                  ],
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 15,
+                    horizontal: 20,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      _profile(),
+                      _stats(),
+                      _title(),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          )),
+              ],
+            )),
+      ),
     );
   }
 
   _profile() {
     return Row(
       children: <Widget>[
-        UserStory(
+        CircleProfile(
           user: post.owner,
           size: 45,
         ),
@@ -61,7 +73,7 @@ class UserPost extends StatelessWidget {
               post.owner.name.toUpperCase(),
               style: TextStyle(
                 color: Color(0xff3A3A3A),
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w900,
                 fontSize: 14,
               ),
             ),
@@ -106,17 +118,16 @@ class UserPost extends StatelessWidget {
     );
   }
 
-  _titile() {
+  _title() {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
           height: 40,
           width: 40,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.all(
-              Radius.circular(20),
-            ),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: Icon(
             Icons.play_arrow,
@@ -133,14 +144,16 @@ class UserPost extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
-                  
-                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.w900,
                 ),
               ),
               Text(
                 post.location.toUpperCase(),
                 style: TextStyle(
                   color: Color(0xffC5C5C5),
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1,
                   fontSize: 12,
                 ),
               ),

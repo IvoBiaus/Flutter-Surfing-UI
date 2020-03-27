@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:surfingui/components/CircleProfile/circle_profile.dart';
 import 'package:surfingui/constants/mocked_data.dart';
 
-import 'components/UserStory/user_story.dart';
 import 'components/UserPost/user_post.dart';
 
 class Home extends StatelessWidget {
@@ -52,7 +52,7 @@ class Home extends StatelessWidget {
   _body(BuildContext context) {
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.only(top: 20, left: 30, right: 30),
         color: Colors.white,
         width: double.infinity,
         child: Column(
@@ -81,7 +81,7 @@ class Home extends StatelessWidget {
         },
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return UserStory(user: testUser, size: 55);
+          return CircleProfile(user: testUser, size: 55);
         },
         itemCount: 8,
       ),

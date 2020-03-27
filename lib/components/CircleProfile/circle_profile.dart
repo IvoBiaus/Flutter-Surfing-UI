@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:surfingui/models/user.dart';
 
-class UserStory extends StatelessWidget {
+class CircleProfile extends StatelessWidget {
   final User user;
   final double size;
 
-  UserStory({@required this.user, @required this.size});
+  CircleProfile({@required this.user, @required this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class UserStory extends StatelessWidget {
               width: size*0.04,
               color: Colors.blue, // TODO add a color to each user & check if user has a story
             ),
-            borderRadius: BorderRadius.all(Radius.circular(40)),
+            borderRadius: BorderRadius.circular(40),
           ),
         )
       ],
