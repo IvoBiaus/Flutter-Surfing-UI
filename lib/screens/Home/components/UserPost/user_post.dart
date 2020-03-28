@@ -28,32 +28,33 @@ class UserPost extends StatelessWidget {
           );
         },
         child: Container(
-            height: 235,
-            width: double.infinity,
-            color: Colors.black,
-            child: Stack(
-              children: <Widget>[
-                Image(
-                  width: double.infinity,
-                  image: AssetImage(post.postPicture),
-                  fit: BoxFit.cover,
+          height: 235,
+          width: double.infinity,
+          color: Colors.black,
+          child: Stack(
+            children: <Widget>[
+              Image(
+                width: double.infinity,
+                image: AssetImage(post.postPicture),
+                fit: BoxFit.cover,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 15,
+                  horizontal: 20,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 15,
-                    horizontal: 20,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      _profile(),
-                      _stats(),
-                      _title(),
-                    ],
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    _profile(),
+                    _stats(),
+                    _title(),
+                  ],
                 ),
-              ],
-            )),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -110,7 +111,7 @@ class UserPost extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Icon(
-            Icons.star,
+            Icons.collections_bookmark,
             color: Colors.black,
           ),
         ],

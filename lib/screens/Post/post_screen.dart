@@ -13,16 +13,16 @@ class PostScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _body(),
+      body: _body(context),
     );
   }
 
-  _body() {
+  _body(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            _header(),
+            _header(context),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: Column(
@@ -48,14 +48,14 @@ class PostScreen extends StatelessWidget {
     );
   }
 
-  _header() {
+  _header(BuildContext context) {
     return Container(
       height: 350,
       width: double.infinity,
       child: Stack(
         children: <Widget>[
           _clippedImage(),
-          _icons(),
+          _icons(context),
         ],
       ),
     );
@@ -73,15 +73,18 @@ class PostScreen extends StatelessWidget {
     );
   }
 
-  _icons() {
+  _icons(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 30, right: 30, top: 20, bottom: 47),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Icon(
-            Icons.keyboard_backspace,
-            size: 40,
+          GestureDetector(
+            child: Icon(
+              Icons.keyboard_backspace,
+              size: 40,
+            ),
+            onTap: () => Navigator.pop(context),
           ),
           SizedBox(height: 25),
           Icon(
@@ -90,7 +93,7 @@ class PostScreen extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Icon(
-            Icons.star,
+            Icons.collections_bookmark,
             size: 30,
           ),
           SizedBox(height: 10),

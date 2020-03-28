@@ -9,23 +9,21 @@ class PostClipper extends CustomClipper<Path> {
     final h = size.height;
     final path = Path();
 
-    path.moveTo(w, h / 2);
+    path.moveTo(w, 0);
 
     //big circle
     path.arcTo(
         Rect.fromCircle(center: Offset(w * .65, h * 0.28), radius: w * .6),
         0,
-        2 * pi - 0.0001,
+        pi*1.99,
         false);
 
     //small circle
-    path.arcTo(
+     path.arcTo(
         Rect.fromCircle(center: Offset(w * .17, h * 0.76), radius: w * .17),
         0,
-        2 * pi - 0.0001,
+        pi*1.99,
         false);
-
-    path.lineTo(w, 0);
 
     return path;
   }
