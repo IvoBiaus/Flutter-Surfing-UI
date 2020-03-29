@@ -57,7 +57,7 @@ class Home extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: <Widget>[
-            _contectsStories(context),
+            _contactsStories(context),
             SizedBox(
               height: 25,
             ),
@@ -68,9 +68,7 @@ class Home extends StatelessWidget {
     );
   }
 
-  _contectsStories(BuildContext context) {
-    final testUser = users[0];
-
+  _contactsStories(BuildContext context) {
     return Container(
       width: double.infinity,
       height: 55,
@@ -81,16 +79,14 @@ class Home extends StatelessWidget {
         },
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return CircleProfile(user: testUser, size: 55);
+          return CircleProfile(user: users[index], size: 55);
         },
-        itemCount: 8,
+        itemCount: users.length,
       ),
     );
   }
 
   _contactsPosts() {
-    final testPost = posts[0];
-
     return Expanded(
       child: Container(
         width: double.infinity,
@@ -100,9 +96,9 @@ class Home extends StatelessWidget {
             return SizedBox(height: 37.5);
           },
           itemBuilder: (context, index) {
-            return UserPost(post: testPost);
+            return UserPost(post: posts[index]);
           },
-          itemCount: 4,
+          itemCount: posts.length,
         ),
       ),
     );

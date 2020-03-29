@@ -1,15 +1,17 @@
+import 'package:flutter/material.dart';
+
 class User {
   String name;
   String description;
   String profilePic;
-  String postPic;
   String presentationPic;
+  Color color;
 
   User({
-    this.name,
-    this.description,
-    this.profilePic,
-    this.postPic,
-    this.presentationPic,
+    @required this.name,
+    @required this.description,
+    @required this.profilePic,
+    @required this.presentationPic,
+    @required this.color,
   });
 }

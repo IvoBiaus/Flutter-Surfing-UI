@@ -65,7 +65,7 @@ class PostScreen extends StatelessWidget {
     return ClipPath(
       clipper: PostClipper(),
       child: Image(
-        image: AssetImage(post.owner.postPic),
+        image: AssetImage(post.owner.profilePic),
         fit: BoxFit.cover,
         height: 350,
         width: double.infinity,

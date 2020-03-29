@@ -6,5 +6,5 @@ Surfing UI based on dribble design
 
 ![Dribbble design](readme_assets/dribbble-surfing.png)
 
-<!-- # Demo
-![Surfing app demo](readme_assets/surfing.gif) -->
+# Demo
+![Surfing app demo](readme_assets/surfing.gif)

@@ -10,11 +10,13 @@ class CircleProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO make this clickable
     return GestureDetector(
-      onTap: () => Navigator.push(context,             MaterialPageRoute(
-              builder: (context) => Profile(user: user),
-            ),),
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Profile(user: user),
+        ),
+      ),
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
@@ -28,8 +30,7 @@ class CircleProfile extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.all(
                 width: size * 0.04,
-                color: Colors
-                    .blue, // TODO add a color to each user & check if user has a story
+                color: user.color
               ),
               borderRadius: BorderRadius.circular(40),
             ),

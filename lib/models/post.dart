@@ -1,21 +1,23 @@
+import 'package:flutter/material.dart';
+
 import 'user.dart';
 
 class Post {
+  String content;
   String title;
   int likes;
-  User owner;
   String location;
-  DateTime createdAt;
+  User owner;
   String postPicture;
-  String content;
+  DateTime createdAt;
 
   Post({
-    this.title,
-    this.likes,
-    this.owner,
-    this.location,
-    this.postPicture,
-    this.content,
+    @required this.title,
+    @required this.likes,
+    @required this.owner,
+    @required this.location,
+    @required this.postPicture,
+    @required this.content,
   }){
     this.createdAt = DateTime.now();
   }

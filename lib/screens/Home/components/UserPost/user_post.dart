@@ -10,7 +10,6 @@ class UserPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO make this clickable
     return ClipRRect(
       borderRadius: BorderRadius.only(
         bottomLeft: Radius.circular(20),
@@ -30,11 +29,11 @@ class UserPost extends StatelessWidget {
         child: Container(
           height: 235,
           width: double.infinity,
-          color: Colors.black,
           child: Stack(
             children: <Widget>[
               Image(
                 width: double.infinity,
+                height: double.infinity,
                 image: AssetImage(post.postPicture),
                 fit: BoxFit.cover,
               ),
@@ -45,6 +44,7 @@ class UserPost extends StatelessWidget {
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     _profile(),
                     _stats(),
@@ -60,45 +60,61 @@ class UserPost extends StatelessWidget {
   }
 
   _profile() {
-    return Row(
-      children: <Widget>[
-        CircleProfile(
-          user: post.owner,
-          size: 45,
-        ),
-        SizedBox(width: 10),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              post.owner.name.toUpperCase(),
-              style: TextStyle(
-                color: Color(0xff3A3A3A),
-                fontWeight: FontWeight.w900,
-                fontSize: 14,
+    return Container(
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          blurRadius: 30,
+          color: Colors.white38,
+        )
+      ]),
+      child: Wrap(
+        direction: Axis.horizontal,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: <Widget>[
+          CircleProfile(
+            user: post.owner,
+            size: 45,
+          ),
+          SizedBox(width: 10),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                post.owner.name.toUpperCase(),
+                style: TextStyle(
+                  color: Color(0xff3A3A3A),
+                  fontWeight: FontWeight.w900,
+                  fontSize: 14,
+                ),
               ),
-            ),
-            Text(
-              '4 HOURS AGO',
-              style: TextStyle(
-                color: Color(0xff3A3A3A),
-                fontSize: 12,
-              ),
-            ), //TODO calculate time hours or minutes
-          ],
-        ),
-      ],
+              Text(
+                '4 HOURS AGO',
+                style: TextStyle(
+                  color: Color(0xff3A3A3A),
+                  fontSize: 12,
+                ),
+              ), //TODO calculate time hours or minutes
+            ],
+          ),
+        ],
+      ),
     );
   }
 
   _stats() {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.only(left: 10),
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          blurRadius: 30,
+          color: Colors.white38,
+        )
+      ]),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Row(
+          Wrap(
             children: <Widget>[
               //TODO add a listener for the icons
               Icon(
@@ -120,48 +136,56 @@ class UserPost extends StatelessWidget {
   }
 
   _title() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Container(
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Icon(
-            Icons.play_arrow,
-            size: 30,
-          ),
-        ),
-        SizedBox(width: 10),
-        Flexible(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                post.title,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  letterSpacing: 1,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-              Text(
-                post.location.toUpperCase(),
-                style: TextStyle(
-                  color: Color(0xffC5C5C5),
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1,
-                  fontSize: 12,
-                ),
-              ),
-            ],
-          ),
+    return Container(
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          blurRadius: 30,
+          color: Colors.black26,
         )
-      ],
+      ]),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            height: 40,
+            width: 40,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Icon(
+              Icons.play_arrow,
+              size: 30,
+            ),
+          ),
+          SizedBox(width: 10),
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  post.title,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+                Text(
+                  post.location.toUpperCase(),
+                  style: TextStyle(
+                    color: Color(0xffC5C5C5),
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

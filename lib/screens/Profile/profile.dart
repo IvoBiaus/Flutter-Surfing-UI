@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:surfingui/components/CircleProfile/circle_profile.dart';
 import 'package:surfingui/constants/mocked_data.dart';
 import 'package:surfingui/models/user.dart';
+import 'package:surfingui/screens/Home/home_screen.dart';
 
 class Profile extends StatelessWidget {
   final User user;
@@ -55,7 +56,8 @@ class Profile extends StatelessWidget {
     return Row(
       children: <Widget>[
         GestureDetector(
-          onTap: () => Navigator.pop(context),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Home())),
+          
           child: Icon(
             Icons.arrow_back,
             color: Colors.white,
@@ -142,8 +144,6 @@ class Profile extends StatelessWidget {
   }
 
   _otherUsers() {
-    final testUser = users[1];
-
     return Container(
       width: double.infinity,
       height: 45,
@@ -154,9 +154,9 @@ class Profile extends StatelessWidget {
         },
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return CircleProfile(user: testUser, size: 45);
+          return CircleProfile(user: users[index], size: 45);
         },
-        itemCount: 8,
+        itemCount: users.length,
       ),
     );
     ;
